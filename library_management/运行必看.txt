@@ -1,0 +1,4 @@
+在文件夹里打开管理员窗口
+运行npm install（需要下载node.js）
+下载好包后，输入npm run serve
+运行好后访问localhost：3000/home（这个网站会在运行好后显示在窗口复制访问）

@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<!-- 搜索页面 -->
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<script src="js/mui.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-icon mui-icon-back"></span></a>
+			<h1 class="mui-title">搜索</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-input-row mui-search" style="margin: 5px;">
+				<input type="search" class="mui-input-clear" placeholder="">
+			</div>
+			<div class="mui-card">
+				<form class="mui-input-group">
+					<div class="mui-input-row mui-radio">
+						<label>按书名搜索</label>
+						<input name="radio1" type="radio">
+					</div>
+					<div class="mui-input-row mui-radio">
+						<label>按作者搜索</label>
+						<input name="radio1" type="radio" checked>
+					</div>
+					<div class="mui-input-row mui-radio mui-disabled">
+						<label>disabled radio</label>
+						<input name="radio1" type="radio" disabled="disabled">
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+
+</html>

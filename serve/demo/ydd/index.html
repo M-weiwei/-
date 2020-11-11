@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/index.css">
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+			function parseDom(arg) {
+			
+			　　 var objE = document.createElement("div");
+			
+			　　 objE.innerHTML = arg;
+			
+			　　 return objE.childNodes;
+			
+			};
+			function addDows(bookId,bookName,bookIntroduction,bookClassification){
+                var bookClassificationstr = "";
+                for (let var1 in bookClassification) {
+                   bookClassificationstr = bookClassificationstr+'<div class="biaoqian">'+bookClassification[var1]+'</div>';
+                }
+				var str = parseDom('<li class="mylist mui-table-view-cell mui-media"><a href="javascript:;" id="'+bookId+'"><img class="mui-media-object mui-pull-left" src="img/1.jpg"><div class="mui-media-body">'+bookName+'&nbsp;&nbsp;<small class="shuming">'+bookId+'</small><p class="mui-ellipsis">'+bookClassificationstr+'<p class="jianjie">'+bookIntroduction+'</p></p></div></a></li>')
+				$("#list").append(str);
+			}
+			mui.getJSON("../interfaces/showBook.php",null,function(value){
+				for(var i in value){
+					addDows(value[i].bookId,value[i].bookName,value[i].bookIntroduction,value[i].bookClassification)
+				}
+				mui(".mylist").on('tap','a',function(){
+				  //获取id
+				  var bookId = this.id;
+				  //打开详情
+				  mui.openWindow({
+				    id:'redin',
+				    url:'detail.html?bookId='+bookId
+				  });
+				}) 
+			})
+		</script>
+	</head>
+<!-- 	手机端首页 -->
+	<body style="background-color: white;">
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">体验书馆</h1>
+			<a class="mui-icon mui-icon-search mui-pull-right"></a>
+		</header>
+        <nav class="mui-bar mui-bar-tab">
+        	<a class="mui-tab-item mui-active" href="#tabbar">
+        		<span class="mui-icon mui-icon-home"></span>
+        		<span class="mui-tab-label">首页</span>
+        	</a>
+        	<a class="mui-tab-item" href="#bag">
+        		<span class="mui-icon mui-icon-email"><span class="mui-badge">1</span></span>
+        		<span class="mui-tab-label">书包</span>
+        	</a>
+        	<!-- <a class="mui-tab-item" href="#tabbar-with-contact">
+        		<span class="mui-icon mui-icon-contact"></span>
+        		<span class="mui-tab-label">通讯录</span>
+        	</a> -->
+        	<a class="mui-tab-item" href="#mine">
+        		<span class="mui-icon mui-icon-gear"></span>
+        		<span class="mui-tab-label">我的</span>
+        	</a>
+        </nav>
+		<div class="mui-content">
+			<div class="fenlei">
+				<div class="mui-table-view-cell" style="background-color: white;">
+					<a class="mui-navigate-right" href="#">
+						书籍分类
+					</a>
+				</div>
+				<ul class="mui-table-view mui-grid-view">
+					<li class="mui-table-view-cell mui-media mui-col-xs-3">
+						<a href="#">
+							<img class="mui-media-object" src="img/1.jpg">
+							<div class="mui-media-body">文学类</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-3">
+						<a href="#">
+							<img class="mui-media-object" src="img/1.jpg">
+							<div class="mui-media-body">历史类</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-3">
+						<a href="#"><img class="mui-media-object" src="img/1.jpg">
+							<div class="mui-media-body">科普类</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media mui-col-xs-3">
+						<a href="#">
+							<img class="mui-media-object" src="img/1.jpg">
+							<div class="mui-media-body">美术类</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="remen">
+				<div class="mui-table-view-cell" style="background-color: white;">
+					<a class="mui-navigate-right" href="#">
+						热门推荐
+					</a>
+				</div>
+				<ul class="mui-table-view" id="list">
+					
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript">
+			mui.plusReady(function() {  
+			//预加载详情页  
+			webview_bag = mui.preload({  
+                url: 'bag.html',  
+                id: 'bag',  
+                styles: {  
+                    "render": "always",//一直渲染  
+                    "popGesture": "hide",  
+                    // "titleNView": titleNView//使用原生渐变导航  
+                }  
+            });
+            webview_mine = mui.preload({
+                url: 'mine.html',  
+                id: 'mine',  
+                styles: {  
+                    "render": "always",//一直渲染  
+                    "popGesture": "hide",  
+                    // "titleNView": titleNView//使用原生渐变导航  
+                }  
+            });  
+});
+		</script>
+	</body>
+</html>

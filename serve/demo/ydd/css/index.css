@@ -1,0 +1,62 @@
+.shuming {
+	color: #999 !important;
+}
+
+.biaoqian {
+	display: inline-block !important;
+	padding: 0px 2px !important;
+	background-color: #ccccff !important;
+	border-radius: 5px !important;
+	color: white;
+	font-size: 12px;
+    margin-right: 5px!important;
+}
+
+.mui-navigate-right {
+	color: #333;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.jianjie {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/* 书包页面 */
+.shijian{
+	color: #666;
+	font-size: 14px;
+}
+.riqi{
+	background-color: #ccccff;
+	color: red;
+}
+.mui-table-view-cell mui-media{
+	position: relative;
+	margin-top: 10px;
+}
+.bianju{
+	margin-top: 3px;
+}
+.mui-table-view .mui-media-object{
+	max-width: 120px!important;
+	height: unset!important;
+}
+.huanshu{
+	position: absolute;
+	bottom: 16px!important;
+	right: 30px!important;
+}
+.mui-btn-primary{
+	background-color: #99ccff;
+	border-color: #99ccff;
+}
+.xiangqing{
+	color: #666;
+	padding: 6px;
+}
+.pingjia{
+	padding: 10px;
+}
