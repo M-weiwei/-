@@ -1,3 +1,2 @@
 # online retailers
-电商后台管理
-运用vue构成的电脑端，根据页面图纸运用element ui快速构建静态页面，原生js来实现复杂的逻辑交互，router进行页面组件跳转，axios进行后台api请求，在将数据渲染到页面，运用vuex来控制页面数据
+图书管理系统
